@@ -38,7 +38,7 @@ The Implementation Guidelines mentioned above consider three levels when [publis
 
 We expect institutions to implement at least level 2. Users can request individual linked data resources through a persistent identifier (see above). Making data available through a data dump at basic level does **not** comply with these guidelines.
 
-We do strongly suggest suppliers to implement level 3 in their products and enable users to also query linked data collections. Use an endpoint that can process [SPARQL](https://www.w3.org/TR/rdf-sparql-query/) queries.
+We strongly suggest that suppliers implement level 3 in their products and enable users to also query linked data collections. Use an endpoint that can process [SPARQL](https://www.w3.org/TR/rdf-sparql-query/) queries.
 
 ### 3. Implementation of the NDE *termennetwerk* (Terminology Network)
 

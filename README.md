@@ -26,7 +26,7 @@ As a supplier we expect you to implement at least one persistent identification 
 
 #### 1.2 Linking to deleted resources
 
-You are required to maintain persistency even if resources have been deleted or no longer publicly available. Use [standard HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages) categories 100, 200 or 300. You may redirect the PID of such resources to a new resource that replaces it, serve a deleted resource in its last incarnation and mark it as 'obsolete', or chose some other solution. You may not throw a client error response (category 400) or a server error response (category 500) to structurally handle such requests.
+You are required to maintain persistency even if resources have been deleted or are no longer publicly available. Use [standard HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages) categories 100, 200 or 300. You may redirect the PID of such resources to a new resource that replaces it, serve a deleted resource in its last incarnation and mark it as 'obsolete', or chose some other solution. You may not throw a client error response (category 400) or a server error response (category 500) to structurally handle such requests.
 
 #### 1.3 Specific points for PID-system implementations
 
@@ -34,7 +34,7 @@ You are required to maintain persistency even if resources have been deleted or 
 
 For convenience we compiled an [explanation of the anatomy of a PID-request](anatomyPersistentId.md) in ARK and Handle, and how they differ. We also explain how ARK can be a free service (you need to do more yourself) and why Handle comes at a cost. 
 
-We have noticed that the costs to use Handle are frequently misunderstood. A Handle prefix costs about €50 per year. 
+We have noticed that the costs to use Handle are frequently misunderstood. A Handle registration costs about €50 per year. 
 
 Many institutions in the cultural heritage sector use [SURF](https://www.surf.nl/en) (the collaborative organisation for IT in Dutch education and research) to help them. SURF provides a PID-service that uses Handle and charges €493 per year (in 2024) on top of the Handle registration fee. For more information see: [SURF Data Persistent Identifier](https://www.surf.nl/en/data-persistent-identifier-data-always-findable-by-permanent-references). The SURF service allows you to automatically generate and administer PIDs for any resource located in SURF systems. ***It cannot provide this service for resources located elsewhere.*** 
 

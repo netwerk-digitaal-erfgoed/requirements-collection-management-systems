@@ -26,7 +26,11 @@ You are required to maintain persistency even if resources have been deleted or 
 
 For convenience we compiled an [explanation of the anatomy of a PID-request](anatomyPersistentId.md) in ARK and Handle and how they differ. We also explain how ARK can be a free service (you need to do more yourself) and why Handle comes at a cost. 
 
-We have noticed that the costs to use Handle are frequently misunderstood. A Handle prefix costs about €50 per year. Many institutions in the cultural heritage sector have asked [SURF](https://www.surf.nl/en) (the collaborative organisation for IT in Dutch education and research) to provide them with a PID-service that uses Handle. This allows you to automatically generate and administer the PIDs for any resource located in SURF systems. SURF charges €493 per year (in 2024) on top of the Handle registration. For more information see: [SURF Data Persistent Identifier](https://www.surf.nl/en/data-persistent-identifier-data-always-findable-by-permanent-references). Be aware that when you chose Handle as your PID-system, NDE does not require you to make use of the SURF service and incur those costs. 
+We have noticed that the costs to use Handle are frequently misunderstood. A Handle prefix costs about €50 per year. 
+
+Many institutions in the cultural heritage sector use [SURF](https://www.surf.nl/en) (the collaborative organisation for IT in Dutch education and research) to help them. SURF provides a PID-service that uses Handle and charges €493 per year (in 2024) on top of the Handle registration. For more information see: [SURF Data Persistent Identifier](https://www.surf.nl/en/data-persistent-identifier-data-always-findable-by-permanent-references). The SURF service allows you to automatically generate and administer PIDs for any resource located in SURF systems. ***It cannot provide this service for resources located anywhere else.*** 
+
+When you chose Handle as your PID-system, NDE does not require you to make use of the SURF service. Be aware that you need to know the storage location of the resources that you want to share with the NDE network, in order to decide if the SURF PID-service provides you with value. We have encountered organisations who paid for the SURF-service while none of their linked data resources was stored there. 
 
 ### 2.  Publication of Linked Open Data
 

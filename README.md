@@ -4,11 +4,11 @@
 
 This document helps suppliers of software - like collection registration and management systems, or linked data publication platforms - to make their systems NDE-compliant and ready for use in the Dutch heritage sector.  
 
-The guidelines in this document are required for any institution in the Dutch cultural sector, who receives funding through the NDE *Versnellingsprogramma* (Acceleration Program). Software suppliers help these organisations to meet the requirements by implementing them as features in their systems.
+The guidelines in this document are required for any institution in the Dutch cultural sector who receives funding through the NDE *Versnellingsprogramma* (Acceleration Program). Software suppliers help these organisations to meet these requirements by implementing them as features in their systems.
 
 Organisations who provide datasets or collections according to these guidelines are considered  [*Bronhouders*](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen#Bronhouder) (Data Providers) as defined by the *Digitaal Erfgoed Referentie Architectuur* - [DERA](https://dera.netwerkdigitaalerfgoed.nl)) (Digital Heritage Reference Architecture).
 
-## GUIDELINES
+## Guidelines
 
 ### 1. Persistent Identifiers
 
@@ -16,21 +16,31 @@ Every information resource needs a web address ([URI](https://en.wikipedia.org/w
 
 To guarantee reliability we require heritage institutions to use Persistent Identifiers (PIDs) for their resources. With a PID the link to a resource keeps working even when the organisation or object's location has changed.
 
-There are multiple PID systems such as [Archival Resource Keys](https://arks.org) (ARKs), [Digital Object Identifiers](https://www.doi.org) (DOIs), [Handle](http://handle.net) and others. We have no preference for any specific solution. Each system has its own particular properties, strengths, and weaknesses. The [PID Guide](https://www.pidwijzer.nl/en) helps to select a PID system. 
+#### 1.1 PID Implementations
 
-As a heritage institution and data provider, the choice for a PID system is your responsibility. You will be limited by the PID systems supported by your software supplier. But when you change supplier, your PID system migrates with you. 
+There are multiple PID systems such as [Archival Resource Keys](https://arks.org) (ARKs), [Digital Object Identifiers](https://www.doi.org) (DOIs), [Handle](http://handle.net) and others. We have no preference for any specific implementation. Each system has its own particular properties, strengths, and weaknesses. The [PID Guide](https://www.pidwijzer.nl/en) helps you chose. 
+
+As a heritage institution and data provider, the choice for a PID system is your responsibility. You may be limited by the PID systems supported by your software supplier. But when you change supplier, your PID system migrates with you. 
 
 As a supplier we expect you to implement at least one persistent identification system in your software. You are of course free to support more. Take specific care that the implementation links resources to your customer (the cultural heritage institution) and not to you as a supplier. Persistency must be guaranteed even if resources are migrated to another supplier in the future.
 
+#### 1.2 Linking to deleted resources
+
 You are required to maintain persistency even if resources have been deleted or no longer publicly available. Use [standard HTTP response status code](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages) categories 100, 200 or 300. You may redirect the PID of such resources to a new resource that replaces it, serve a deleted resource in its last incarnation and mark it as 'obsolete', or chose some other solution. You may not throw a client error response (category 400) or a server error response (category 500) to structurally handle such requests.
 
-For convenience we compiled an [explanation of the anatomy of a PID-request](anatomyPersistentId.md) in ARK and Handle and how they differ. We also explain how ARK can be a free service (you need to do more yourself) and why Handle comes at a cost. 
+#### 1.3 Specific points for PID-system implementations
+
+##### 1.3.1 Handle and ARK
+
+For convenience we compiled an [explanation of the anatomy of a PID-request](anatomyPersistentId.md) in ARK and Handle, and how they differ. We also explain how ARK can be a free service (you need to do more yourself) and why Handle comes at a cost. 
 
 We have noticed that the costs to use Handle are frequently misunderstood. A Handle prefix costs about €50 per year. 
 
-Many institutions in the cultural heritage sector use [SURF](https://www.surf.nl/en) (the collaborative organisation for IT in Dutch education and research) to help them. SURF provides a PID-service that uses Handle and charges €493 per year (in 2024) on top of the Handle registration. For more information see: [SURF Data Persistent Identifier](https://www.surf.nl/en/data-persistent-identifier-data-always-findable-by-permanent-references). The SURF service allows you to automatically generate and administer PIDs for any resource located in SURF systems. ***It cannot provide this service for resources located anywhere else.*** 
+Many institutions in the cultural heritage sector use [SURF](https://www.surf.nl/en) (the collaborative organisation for IT in Dutch education and research) to help them. SURF provides a PID-service that uses Handle and charges €493 per year (in 2024) on top of the Handle registration fee. For more information see: [SURF Data Persistent Identifier](https://www.surf.nl/en/data-persistent-identifier-data-always-findable-by-permanent-references). The SURF service allows you to automatically generate and administer PIDs for any resource located in SURF systems. ***It cannot provide this service for resources located elsewhere.*** 
 
-When you chose Handle as your PID-system, NDE does not require you to make use of the SURF service. Be aware that you need to know the storage location of the resources that you want to share with the NDE network, in order to decide if the SURF PID-service provides you with value. We have encountered organisations who paid for the SURF-service while none of their linked data resources was stored there. 
+NDE does not require you to make use of the SURF service when you chose Handle as your PID-system. 
+
+Be aware that you need to know the storage location of the resources that you want to share with the NDE network, in order to decide if the SURF PID-service provides you with value. We have encountered organisations who paid for the SURF-service while none of their (linked data) resources were stored there. 
 
 ### 2.  Publication of Linked Open Data
 
@@ -59,6 +69,12 @@ The Implementation Guidelines mentioned above consider three levels when [publis
 We expect institutions to implement at least level 2. Users can request individual linked data resources through a persistent identifier (see above). Making data available through a data dump at basic level does **not** comply with these guidelines.
 
 We strongly suggest that suppliers implement level 3 in their products and enable users to also query linked data collections. Use an endpoint that can process [SPARQL](https://www.w3.org/TR/rdf-sparql-query/) queries.
+
+#### 2.3 Data licenses
+
+The DERA requires institutions to publish  metadata with an open license. The actual access to the digital object, such as an image or audio file, can be restricted. You must specify additional license statements for use and reuse of the objects in the metadata. Use the [schema:license](https://schema.org/license) property to relate a license to an information resource. 
+
+Remember that you have to relate a license to the dataset, the object metadata, and the reproduction. These licenses may differ.
 
 ### 3. Implementation of the NDE *termennetwerk* (Terminology Network)
 

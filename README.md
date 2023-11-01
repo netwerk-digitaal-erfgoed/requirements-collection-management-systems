@@ -47,7 +47,7 @@ We recommend you also serve data in one or more domain models. Domain models mak
 - Data from archives: [RiC-O](https://www.ica.org/standards/RiC/RiC-O_v0-2.html)
 - Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography (only in Dutch)](https://netwerk-digitaal-erfgoed.github.io/rdanl/). When using other library domain standards like [BIBFRAME](https://www.loc.gov/bibframe/) you should document the implementation choices made and relation to the RDA application profile.
 
-When you serve data only in a domain model documentation about the mapping to Schema.org (preferably in machine readable format) should be made available.
+When recommend to publish documentation about the mapping of your data (recommended in a machine readable format) to other well known models like the [Europeana Data Model (EDM)](https://pro.europeana.eu/page/edm-documentation). You can get support from NDE for creating these mappings.   
 
 #### 2.2 Serving data
 

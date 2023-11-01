@@ -24,7 +24,7 @@ Heritage institutions must use Persistent Identifiers (PIDs) for their resources
 
 There are multiple PID systems such as [Archival Resource Keys](https://arks.org) (ARKs), [Digital Object Identifiers](https://www.doi.org) (DOIs), [Handle](http://handle.net) and others. You may chose the implementation. Each system has its own particular properties, strengths, and weaknesses. Our [PID Guide](https://www.pidwijzer.nl/en) helps you make a choice. 
 
-As a heritage institution you must chose a PID system. You may be limited by the PID systems supported by your software vendor. But when you change vendor, your PID system migrates with you. 
+As a heritage institution you must chose a PID system. You may be limited by the PID systems supported by your software vendor. But when you change vendor, your PID system migrates with you. It is possible to build your own system for ensuring the sustainability of your identifiers. In that case you will have to do extra work on documentating the measures you take to garantee the sustainability. For all systems it is advised to formaly describe the policies on how keeping the PIDs functioning over time. 
 
 As a vendor you must implement at least one PID system in your software. You may support more. When implementing the PID-system you must link resources to your customer (the cultural heritage institution) and not to you as a vendor. Persistency must be guaranteed when resources are migrated to another vendor in the future.
 
@@ -45,24 +45,22 @@ You must use the generic model [schema.org](https://schema.org) when you chose t
 We recommend you also serve data in one or more domain models. Domain models make reuse of data much more likely and may contain a wealth of information. Depending on the type of data, you may consider the following examples:
 - Museum collections and catalogues: [CIDOC-CRM](https://cidoc-crm.org) and its derivative [Linked-Art](https://linked.art/model/).
 - Data from archives: [RiC-O](https://www.ica.org/standards/RiC/RiC-O_v0-2.html)
-- Libraries: [BIBFRAME](https://www.loc.gov/bibframe/) or [RDA Elements](https://www.rdaregistry.info/Elements/)
+- Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography (only in Dutch)](https://netwerk-digitaal-erfgoed.github.io/rdanl/). When using other library domain standards like [BIBFRAME](https://www.loc.gov/bibframe/) you should document the implementation choices made and relation to the RDA application profile.
 
-You may also implement any model suggested by [CLARIAH](https://www.clariah.nl) in the [Awesome Ontologies for Digital Humanities](https://github.com/CLARIAH/awesome-humanities-ontologies) repository.
-
-You should implement the [W3C draft for content negotiation by profile](https://www.w3.org/TR/dx-prof-conneg/) when publishing linked data that is available in multiple models.
+When you serve data only in a domain model documentation about the mapping to Schema.org (preferably in machine readable format) should be made available.
 
 #### 2.2 Serving data
 
 The [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) mentioned earlier consider three levels when [publishing linked data](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-linked-data):
-1. Basic level: data dumps
-2. Web compliance level: resolvable URIs
+1. Web compliance level: resolvable URIs
+2. Basic level: data dumps
 3. Advanced level: queryable Linked Data
 
 You must publish linked data both as level 1 and 2. 
 
-To publish linked data as a data dump (level 1) you should use [RDF](https://www.w3.org/RDF/) or [JSON-LD](https://json-ld.org) as a format.  You are required to serve the data dump through a [persistent identifier](###%201.%20Persistent%20Identifiers). To handle requests you must provide an API that complies with the [Open API Specification](https://spec.openapis.org/oas/latest.html). 
+To publish web compliant linked data (level 1) you must use persistent identifiers (see above) to resolve the individual linked data resources contained in your data. To handle requests you must support the [HTTP Content Negotation functionality](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3) which offers users the choice to consume the data in HTML or RDF serializations.
 
-To publish web compliant linked data (level 2) you must use persistent identifiers (see above) to resolve the individual linked data resources contained in your data. To handle requests you must provide an API that complies with the [Open API Specification](https://spec.openapis.org/oas/latest.html). 
+To publish linked data as a data dump (level 2) you should use [RDF](https://www.w3.org/RDF/). We recommend the use of the N-Triples serialisation for flexibility but any valid RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You are required to serve the data dump through a [persistent identifier](###%201.%20Persistent%20Identifiers). 
 
 We strongly recommend that vendors implement level 3 in their products and allow users to also query linked data collections. For compliance with level 3 you must use a [SPARQL](https://www.w3.org/TR/rdf-sparql-query/) endpoint.
 
@@ -72,7 +70,7 @@ We strongly recommend that vendors implement level 3 in their products and allow
 
 To increase the findability of datasets of heritage institutions, you must also publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and have adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [NDE Requirements for Datasets](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets) and specifically the [section Dataset information](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information).
 
-You are required to serve the metadata through a [persistent identifier](###%201.%20Persistent%20Identifiers). To handle requests you must provide an API that complies with the [Open API Specification](https://spec.openapis.org/oas/latest.html). 
+You are required to serve the metadata through a [persistent identifier](###%201.%20Persistent%20Identifiers). 
 
 You must publish metadata with an open data license. You may chose the most suitable license.
 

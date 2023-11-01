@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This document helps vendors of software - like collection registration and management systems, or linked data publication platforms - to make their systems NDE compliant and ready for use in the Dutch heritage sector.  
+This document helps vendors of software - like collection management systems, and linked data publication platforms - to make their systems NDE compliant and ready for use in the Dutch heritage sector.  
 
 The guidelines in this document are required for any institution in the Dutch cultural sector that receives funding through the NDE *Versnellingsprogramma* (Acceleration Program). Software vendors help these organisations to meet these requirements by implementing them as features in their systems.
 

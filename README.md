@@ -24,7 +24,7 @@ Heritage institutions must use Persistent Identifiers (PIDs) for their resources
 
 There are multiple PID systems such as [Archival Resource Keys](https://arks.org) (ARKs), [Digital Object Identifiers](https://www.doi.org) (DOIs), [Handle](http://handle.net) and others. You may chose the implementation. Each system has its own particular properties, strengths, and weaknesses. Our [PID Guide](https://www.pidwijzer.nl/en) helps you make a choice. 
 
-As a heritage institution you must chose a PID system. You may be limited by the PID systems supported by your software vendor. But when you change vendor, your PID system migrates with you. It is possible to build your own system for ensuring the sustainability of your identifiers. In that case you will have to do extra work on documentating the measures you take to garantee the sustainability. For all systems it is advised to formaly describe the policies on how keeping the PIDs functioning over time. 
+As a heritage institution you must chose a PID system. You may be limited by the PID systems supported by your software vendor. But when you change vendor, your PID system migrates with you. You may build your own system for ensuring the sustainability of your identifiers. In that case you must document the measures you take to garantee the sustainability. For all systems you should formaly describe the policies on how you intend to keep the PIDs functioning over time. 
 
 As a vendor you must implement at least one PID system in your software. You may support more. When implementing the PID-system you must link resources to your customer (the cultural heritage institution) and not to you as a vendor. Persistency must be guaranteed when resources are migrated to another vendor in the future.
 

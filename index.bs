@@ -17,7 +17,7 @@ This document helps vendors of software - like collection management systems, an
 
 The guidelines in this document are required for any institution in the Dutch cultural sector that receives funding through the NDE *Versnellingsprogramma* (Acceleration Program). Software vendors help these organisations to meet the requirements by implementing them as features in their systems.
 
-Organisations who provide datasets or collections according to these guidelines are considered  [*Bronhouders*](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen#Bronhouder) (Data Providers) as defined by the *Digitaal Erfgoed Referentie Architectuur* - [[!DERA]] (Digital Heritage Reference Architecture).
+Organisations who provide datasets or collections according to these guidelines are considered Data Providers ([Bronhouders](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen#Bronhouder)) as defined by the [[!DERA]].
 
 Please refer to our [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) for further detailed technical information.
 
@@ -25,7 +25,7 @@ Please refer to our [Implementation Guidelines](https://netwerk-digitaal-erfgoed
 
 ## Persistent Identifiers ## {#pid}
 
-Every information resource needs a [[URI]](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) that identifies it to the world. Users must be able to trust these identifiers, they should be unique and reliably serve the same resource. URIs must be resolvable and point the user to valid linked data. 
+Every information resource needs a [[URI]] that identifies it to the world. Users must be able to trust these identifiers, they should be unique and reliably serve the same resource. URIs must be resolvable and point the user to valid linked data. 
 
 Persistent Identifiers (PIDs) are the part of a URI that uniquely identifies a resource. Heritage institutions must use Persistent Identifiers (PIDs) for their resources to guarantee reliability. With a PID the link to a resource keeps working even when the organisation, or the object's location, has changed.
 

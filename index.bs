@@ -79,7 +79,7 @@ Note: When you comply with levels 1 and 2 you allow users to access the individu
 
 ## Implementation of the NDE Network of Terms
 
-To connect the linked data that you publish with other data sources heritage institutions should use terms. Terms are descriptions of concepts or entities, such as subjects, people or places, and are managed in terminology sources, such as thesauri, reference lists or classification systems. Examples are [\AAT](https://www.getty.edu/research/tools/vocabularies/aat/), [GeoNames](https://www.geonames.org/) or [WO2 Thesaurus](https://data.niod.nl/WO2_Thesaurus.html) (in Dutch).
+To connect the linked data that you publish with other data sources heritage institutions should use terms. Terms are descriptions of concepts or entities, such as subjects, people or places, and are managed in terminology sources, such as thesauri, reference lists or classification systems. Examples are <a href="https://www.getty.edu/research/tools/vocabularies/aat/">AAT</a>, [GeoNames](https://www.geonames.org/) or [WO2 Thesaurus](https://data.niod.nl/WO2_Thesaurus.html) (in Dutch).
 
 Heritage institutions may use their own terminology sources. However, this reduces their ability to connect to sources from different institutions when using terms that are not part of internationally standardised terminology sources. We recommend using as many standardised terminology sources as possible. We developed the Network-of-Terms service to give you easy access to many different terminology sources.
 
@@ -89,7 +89,7 @@ For vendors we require the implementation of the [NDE Network-of-Terms API](http
 
 ## Registration with the NDE Dataset Register
 
-To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [NDE Requirements for Datasets](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets) and specifically the [section Dataset information](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information).
+To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [[!NDE-DATASETS|NDE Requirements for Datasets]] and specifically the [section Dataset information](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information).
 
 You are required to serve the metadata through a URI with a [[#pid]]. 
 

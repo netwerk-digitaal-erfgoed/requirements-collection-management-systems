@@ -17,15 +17,15 @@ This document helps vendors of software - like collection management systems, an
 
 The guidelines in this document are required for any institution in the Dutch cultural sector that receives funding through the NDE *Versnellingsprogramma* (Acceleration Program). Software vendors help these organisations to meet the requirements by implementing them as features in their systems.
 
-Organisations who provide datasets or collections according to these guidelines are considered  [*Bronhouders*](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen#Bronhouder) (Data Providers) as defined by the *Digitaal Erfgoed Referentie Architectuur* - [DERA](https://dera.netwerkdigitaalerfgoed.nl)) (Digital Heritage Reference Architecture).
+Organisations who provide datasets or collections according to these guidelines are considered  [*Bronhouders*](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen#Bronhouder) (Data Providers) as defined by the *Digitaal Erfgoed Referentie Architectuur* - [[!DERA]] (Digital Heritage Reference Architecture).
 
 Please refer to our [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) for further detailed technical information.
 
 # Requirements
 
-## Persistent Identifiers
+## Persistent Identifiers ## {#pid}
 
-Every information resource needs a [URI](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) that identifies it to the world. Users must be able to trust these identifiers, they should be unique and reliably serve the same resource. URIs must be resolvable and point the user to valid linked data. 
+Every information resource needs a [[URI]](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier) that identifies it to the world. Users must be able to trust these identifiers, they should be unique and reliably serve the same resource. URIs must be resolvable and point the user to valid linked data. 
 
 Persistent Identifiers (PIDs) are the part of a URI that uniquely identifies a resource. Heritage institutions must use Persistent Identifiers (PIDs) for their resources to guarantee reliability. With a PID the link to a resource keeps working even when the organisation, or the object's location, has changed.
 
@@ -41,7 +41,7 @@ As a vendor you must implement at least one PID system in your software. You may
 
 ### Linking to removed resources
 
-Removed resources are all objects that have been deleted, made invisible, or that for any other reason are no longer structurally available . You must maintain persistency for removed resources. To handle such requests you must use [standard HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages). You may use 'HTTP 301 Moved Permanently' to redirect the URI of a removed resource to a new resource that replaces it, or mark a removed resource as 'obsolete' by throwing 'HTTP 410 Gone' and serve its last incarnation, or choose another solution. 
+Removed resources are all objects that have been deleted, made invisible, or that for any other reason are no longer structurally available . You must maintain persistency for removed resources. To handle such requests you must use [standard HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages). You may use 'HTTP 301 Moved Permanently' to redirect the URI of a removed resource to a new resource that replaces it, or mark a removed resource as ‘obsolete’ by throwing 'HTTP 410 Gone' and serve its last incarnation, or choose another solution. 
 
 Unless an actual error occurs, you may not throw a client error response (category 400) or a server error (category 500) response to point to removed resources.
 
@@ -54,9 +54,9 @@ We distinguish between the publication of data in "generic data models" and "dom
 You must use the generic model [schema.org](https://schema.org) when you choose to serve linked data in only one model. 
 
 We recommend you also serve data in one or more domain specific models. Domain models make reuse of data much more likely and may contain a wealth of information. Depending on the type of data, you may consider the following examples:
-- Museum collections and catalogues: [CIDOC-CRM](https://cidoc-crm.org) and its derivative [Linked-Art](https://linked.art/model/).
+- Museum collections and catalogues: <a href="https://cidoc-crm.org">CIDOC-CRM</a> and its derivative [Linked-Art](https://linked.art/model/).
 - Data from archives: [RiC-O](https://www.ica.org/standards/RiC/RiC-O_v0-2.html)
-- Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography](https://netwerk-digitaal-erfgoed.github.io/rdanl/) (only in Dutch). When using other library domain standards like [BIBFRAME](https://www.loc.gov/bibframe/) you should document the implementation choices made and relation to the RDA application profile.
+- Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography](https://netwerk-digitaal-erfgoed.github.io/rdanl/) (only in Dutch). When using other library domain standards like <a href="https://www.loc.gov/bibframe/">BIBFRAME</a>) you should document the implementation choices made and relation to the RDA application profile.
 
 You should publish documentation how your data model maps to other wellknown models like the [Europeana Data Model (EDM)](https://pro.europeana.eu/page/edm-documentation). We recommend you publish this documentation in a machine readable format. NDE can support you when creating these mappings.
 
@@ -69,17 +69,17 @@ The [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-im
 
 You must publish linked data both as level 1 and 2. 
 
-To publish web compliant linked data (level 1) you must use URIs (see: [persistent identifiers](###%201.%20Persistent%20Identifiers)) to resolve the individual linked data resources contained in your data. To handle requests you must support the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3). Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
+To publish web compliant linked data (level 1) you must use URIs (see: [[#pid]] to resolve the individual linked data resources contained in your data. To handle requests you must support the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3). Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
 
-To publish linked data as a data dump (level 2) you should use [RDF](https://www.w3.org/RDF/). We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. 
+To publish linked data as a data dump (level 2) you should use [[rdf-primer|RDF]]. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. 
 
-We strongly recommend that vendors also implement level 3 in their products. This allows users to also query linked data collections. For compliance with level 3 you must use a [SPARQL](https://www.w3.org/TR/rdf-sparql-query/) endpoint.
+We strongly recommend that vendors also implement level 3 in their products. This allows users to also query linked data collections. For compliance with level 3 you must use a [[SPARQL11-OVERVIEW|SPARQL]] endpoint.
 
-> Note, when you comply with levels 1 and 2 you allow users to access the individual linked data objects and the full dataset, while you avoid maintaining a linked data infrastructure that you would need to provide for querying. The drawback of this approach is that you move the burden to facilitate querying to the user. For this reason we view compliance with level 1 and 2 as a minimal requirement. We strongly urge you to go further and implement level 3. Compliancy with level 3 will very likely play a large role in the allocation of future NDE funding.
+Note: When you comply with levels 1 and 2 you allow users to access the individual linked data objects and the full dataset, while you avoid maintaining a linked data infrastructure that you would need to provide for querying. The drawback of this approach is that you move the burden to facilitate querying to the user. For this reason we view compliance with level 1 and 2 as a minimal requirement. We strongly urge you to go further and implement level 3. Compliancy with level 3 will very likely play a large role in the allocation of future NDE funding.
 
 ## Implementation of the NDE Network of Terms
 
-To connect the linked data that you publish with other data sources heritage institutions should use terms. Terms are descriptions of concepts or entities, such as subjects, people or places, and are managed in terminology sources, such as thesauri, reference lists or classification systems. Examples are [AAT](https://www.getty.edu/research/tools/vocabularies/aat/), [GeoNames](https://www.geonames.org/) or [WO2 Thesaurus](https://data.niod.nl/WO2_Thesaurus.html) (in Dutch).
+To connect the linked data that you publish with other data sources heritage institutions should use terms. Terms are descriptions of concepts or entities, such as subjects, people or places, and are managed in terminology sources, such as thesauri, reference lists or classification systems. Examples are [\AAT](https://www.getty.edu/research/tools/vocabularies/aat/), [GeoNames](https://www.geonames.org/) or [WO2 Thesaurus](https://data.niod.nl/WO2_Thesaurus.html) (in Dutch).
 
 Heritage institutions may use their own terminology sources. However, this reduces their ability to connect to sources from different institutions when using terms that are not part of internationally standardised terminology sources. We recommend using as many standardised terminology sources as possible. We developed the Network-of-Terms service to give you easy access to many different terminology sources.
 
@@ -91,7 +91,7 @@ For vendors we require the implementation of the [NDE Network-of-Terms API](http
 
 To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [NDE Requirements for Datasets](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets) and specifically the [section Dataset information](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information).
 
-You are required to serve the metadata through a URI with a [persistent identifier](###%201.%20Persistent%20Identifiers). 
+You are required to serve the metadata through a URI with a [[#pid]]. 
 
 We have created the [NDE dataset register](https://datasetregister.netwerkdigitaalerfgoed.nl/?lang=en) to help users in the cultural heritage sector find relevant datasets to link with. You must use this to register the metadata of datasets you serve. 
 
@@ -109,6 +109,6 @@ You must implement the [IIIF Image API](https://iiif.io/api/image/3.0/) to publi
 
 We use the [IIIF Image API Validator](https://iiif.io/api/image/validator/) to test compliance.
 
-While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the [IIIF Presentation API](https://iiif.io/api/presentation/3.0/). An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You must serve the IIIF manifest through a URI with a [persistent identifier](###%201.%20Persistent%20Identifiers). To improve the readability of the media the metadata of the object must be readable for both humans and machines.
+While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the [IIIF Presentation API](https://iiif.io/api/presentation/3.0/). An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You must serve the IIIF manifest through a URI with a [[#pid]]. To improve the readability of the media the metadata of the object must be readable for both humans and machines.
 
 We use the [IIIF Presentation API Validator](https://presentation-validator.iiif.io) to test compliance.

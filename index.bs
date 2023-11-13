@@ -7,25 +7,26 @@ Markup Shorthands: css yes, markdown yes
 URL: https://netwerk-digitaal-erfgoed.github.io/requirements-collection-management-systems/
 Editor: 
     Gertjan Filarski, Netwerk Digitaal Erfgoed https://www.netwerkdigitaalerfgoed.nl, gertjan@filarski.com
+    Enno Meijers, Netwerk Digitaal Erfgoed https://www.netwerkdigitaalerfgoed.nl, enno.meijers@kb.nl
 Abstract: This document describes requirements for collection management systems. 
     By following these requirements, software developers can make their systems NDE-compatible.
 </pre>
 
 # Introduction
 
-This document helps vendors of software - like collection management systems, and linked data publication platforms - to make their systems NDE compliant and ready for use in the Dutch heritage sector.  
+This document helps vendors of collection management systems to make their systems NDE compliant and ready for use in the Dutch heritage sector. Vendors only offering linked data publication services must meet the requirements for publishing Linked Open Data (see [[#LODpublication]]) and registration with the NDE Dataset Register (see [[#DatasetRegister]]). In this case the other requirements must be fulfilled by the system providing the information to the publication service.      
 
 The guidelines in this document are required for any institution in the Dutch cultural sector that receives funding through the NDE *Versnellingsprogramma* (Acceleration Program). Software vendors help these organisations to meet the requirements by implementing them as features in their systems.
 
 Organisations who provide datasets or collections according to these guidelines are considered Data Providers ([Bronhouders](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen#Bronhouder)) as defined by the [[!DERA]].
 
-Please refer to our [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) for further detailed technical information.
+This specification is normative and builds on top of the more informative [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) which was published in a earlier stage of the NDE-program.
 
 # Requirements
 
 ## Persistent Identifiers ## {#pid}
 
-Every information resource needs a [[URI]] that identifies it to the world. Users must be able to trust these identifiers, they should be unique and reliably serve the same resource. URIs must be resolvable and point the user to valid linked data. 
+Every information resource needs a [[!URI]] that identifies it to the world. Users must be able to trust these identifiers, they must be unique and reliably serve the same resource over time. URIs must be resolvable and point the user to valid linked data. 
 
 Persistent Identifiers (PIDs) are the part of a URI that uniquely identifies a resource. Heritage institutions must use Persistent Identifiers (PIDs) for their resources to guarantee reliability. With a PID the link to a resource keeps working even when the organisation, or the object's location, has changed.
 
@@ -45,7 +46,24 @@ Removed resources are all objects that have been deleted, made invisible, or tha
 
 Unless an actual error occurs, you may not throw a client error response (category 400) or a server error (category 500) response to point to removed resources.
 
-## Publication of Linked Open Data
+## Publication of Linked Open Data ## {#LODpublication}
+
+### Serving data
+
+The [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) mentioned above considers three levels when [publishing linked data](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-linked-data):
+1. Web compliance level: resolvable URIs
+2. Basic level: data dumps
+3. Advanced level: queryable Linked Data
+
+NDE requires linked data to be published both both as level 1 and 2. 
+
+To publish web compliant linked data (level 1) URIs (see: [[#pid]]) must resolve to the individual linked data resources contained in your data. To handle requests the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3) protocol must be supported. Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
+
+To publish linked data as a data dump (level 2) you should use [[rdf-primer|RDF]]. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. 
+
+We strongly recommend that vendors also implement level 3 in their products. This allows users to also query linked data collections. For compliance with level 3 you must use a [[SPARQL11-OVERVIEW|SPARQL]] endpoint.
+
+Note: When you comply with levels 1 and 2 you allow users to access the individual linked data objects and the full dataset, while you avoid maintaining a linked data infrastructure that you would need to provide for querying. The drawback of this approach is that you move the burden to facilitate querying to the user. For this reason we view compliance with level 1 and 2 as a minimal requirement. We strongly urge you to go further and implement level 3. Compliancy with level 3 will very likely play a large role in the allocation of future NDE funding.
 
 ### Data modelling
 
@@ -56,42 +74,27 @@ You must use the generic model [schema.org](https://schema.org) when you choose 
 We recommend you also serve data in one or more domain specific models. Domain models make reuse of data much more likely and may contain a wealth of information. Depending on the type of data, you may consider the following examples:
 - Museum collections and catalogues: <a href="https://cidoc-crm.org">CIDOC-CRM</a> and its derivative [Linked-Art](https://linked.art/model/).
 - Data from archives: [RiC-O](https://www.ica.org/standards/RiC/RiC-O_v0-2.html)
-- Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography](https://netwerk-digitaal-erfgoed.github.io/rdanl/) (only in Dutch). When using other library domain standards like <a href="https://www.loc.gov/bibframe/">BIBFRAME</a>) you should document the implementation choices made and relation to the RDA application profile.
+- Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography](https://netwerk-digitaal-erfgoed.github.io/rdanl/) (only in Dutch). When using other library domain standards like <a href="https://www.loc.gov/bibframe/">BIBFRAME</a>) you should document the implementation choices made and their relation to the RDA application profile.
 
 You should publish documentation how your data model maps to other wellknown models like the [Europeana Data Model (EDM)](https://pro.europeana.eu/page/edm-documentation). We recommend you publish this documentation in a machine readable format. NDE can support you when creating these mappings.
 
-### Serving data
-
-The [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) mentioned above consider three levels when [publishing linked data](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-linked-data):
-1. Web compliance level: resolvable URIs
-2. Basic level: data dumps
-3. Advanced level: queryable Linked Data
-
-You must publish linked data both as level 1 and 2. 
-
-To publish web compliant linked data (level 1) you must use URIs (see: [[#pid]] to resolve the individual linked data resources contained in your data. To handle requests you must support the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3). Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
-
-To publish linked data as a data dump (level 2) you should use [[rdf-primer|RDF]]. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. 
-
-We strongly recommend that vendors also implement level 3 in their products. This allows users to also query linked data collections. For compliance with level 3 you must use a [[SPARQL11-OVERVIEW|SPARQL]] endpoint.
-
-Note: When you comply with levels 1 and 2 you allow users to access the individual linked data objects and the full dataset, while you avoid maintaining a linked data infrastructure that you would need to provide for querying. The drawback of this approach is that you move the burden to facilitate querying to the user. For this reason we view compliance with level 1 and 2 as a minimal requirement. We strongly urge you to go further and implement level 3. Compliancy with level 3 will very likely play a large role in the allocation of future NDE funding.
+To support the reuse of the collection data by the research community the [FAIR principles](https://www.go-fair.org/fair-principles/) should be taken into account preferably by stating the FAIRness of the data through a [FAIR Implementation Profile](https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/). Please contact the NDE-team for more information on the latest developments in this area.
 
 ## Implementation of the NDE Network of Terms
 
 To connect the linked data that you publish with other data sources heritage institutions should use terms. Terms are descriptions of concepts or entities, such as subjects, people or places, and are managed in terminology sources, such as thesauri, reference lists or classification systems. Examples are <a href="https://www.getty.edu/research/tools/vocabularies/aat/">AAT</a>, [GeoNames](https://www.geonames.org/) or [WO2 Thesaurus](https://data.niod.nl/WO2_Thesaurus.html) (in Dutch).
 
-Heritage institutions may use their own terminology sources. However, this reduces their ability to connect to sources from different institutions when using terms that are not part of internationally standardised terminology sources. We recommend using as many standardised terminology sources as possible. We developed the Network-of-Terms service to give you easy access to many different terminology sources.
+Heritage institutions may use their own terminology sources. However, this reduces their ability to connect to sources from different institutions when using terms that are not part of (inter)nationally standardised terminology sources. We recommend using as many standardised terminology sources as possible. We developed the Network-of-Terms service to give you easy access to many different terminology sources.
+
+For vendors we require the implementation of the [NDE Network-of-Terms API](https://termennetwerk.netwerkdigitaalerfgoed.nl/faq3) in the collection management system. This will give your customers easy access to the terminology sources made available through the Network-of-Terms. You must implement configurable terms for fields in your heritage application. You may choose the specific fields. If you allow users of your application to configure the data type of a field, you should add a data type for terms. That way users are not limited in the (number of) fields that they want to configure for certain sets of terms. 
 
 If a heritage institution is considered an authority in a domain, vendors should publish their terminology sources for use by others and make it available through the Network-of-Terms. Please refer to our [Implementation Guidelines on publishing terminology sources](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-terminology-sources). 
 
-For vendors we require the implementation of the [NDE Network-of-Terms API](https://termennetwerk.netwerkdigitaalerfgoed.nl/faq) in the collection management system. This will give your customers easy access to the terminology sources made available through the Network-of-Terms. You must implement configurable terms for fields in your heritage application. You may choose the specific fields. If you allow users of your application to configure the data type of a field, you should add a data type for terms. That way users are not limited in the (number of) fields that they want to configure for certain sets of terms. 
-
-## Registration with the NDE Dataset Register
+## Registration with the NDE Dataset Register ## {#DatasetRegister}
 
 To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [[!NDE-DATASETS|NDE Requirements for Datasets]] and specifically the [section Dataset information](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information).
 
-You are required to serve the metadata through a URI with a [[#pid]]. 
+You are required to serve the metadata through a URI with a persistent identifier (see section [[#pid]]). 
 
 We have created the [NDE dataset register](https://datasetregister.netwerkdigitaalerfgoed.nl/?lang=en) to help users in the cultural heritage sector find relevant datasets to link with. You must use this to register the metadata of datasets you serve. 
 

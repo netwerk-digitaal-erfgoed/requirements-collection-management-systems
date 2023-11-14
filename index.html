@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>Requirements for Collection Management Sytems</title>
+  <title>Requirements for Collection Management Systems</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://netwerk-digitaal-erfgoed.github.io/requirements-collection-management-systems/" rel="canonical">
-  <meta content="1923292b0a06ad074d905e06ebfe8ff8c6065ec0" name="document-revision">
+  <meta content="3cf55e9841dc0a7330dc6d21be91e9ffed113688" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -1894,8 +1894,8 @@ dfn > a.self-link::before      { content: "#"; }
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
-   <h1 class="p-name no-ref" id="title">Requirements for Collection Management Sytems</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2023-11-13">13 November 2023</time></span></h2>
+   <h1 class="p-name no-ref" id="title">Requirements for Collection Management Systems</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2023-11-14">14 November 2023</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1911,7 +1911,7 @@ dfn > a.self-link::before      { content: "#"; }
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 13 November 2023,
+In addition, as of 14 November 2023,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -2011,7 +2011,7 @@ Parts of this work may be from another specification document.  If so, those par
    <p>If a heritage institution is considered an authority in a domain, vendors should publish their terminology sources for use by others and make it available through the Network-of-Terms. Please refer to our <a href="https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-terminology-sources">Implementation Guidelines on publishing terminology sources</a>.</p>
    <h3 class="heading settled" data-level="2.4" id="DatasetRegister"><span class="secno">2.4. </span><span class="content">Registration with the NDE Dataset Register</span><a class="self-link" href="#DatasetRegister"></a></h3>
    <p>To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in <a href="https://schema.org">schema.org</a>. We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the <a data-link-type="biblio" href="#biblio-nde-datasets" title="Requirements for Datasets">NDE Requirements for Datasets</a> and specifically the <a href="https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information">section Dataset information</a>.</p>
-   <p>You are required to serve the metadata through a URI with a persistent identifier (see section <a href="#pid">§ 2.1 Persistent Identifiers</a>).</p>
+   <p>You should serve the metadata through a URI with a persistent identifier (see section <a href="#pid">§ 2.1 Persistent Identifiers</a>).</p>
    <p>We have created the <a href="https://datasetregister.netwerkdigitaalerfgoed.nl/?lang=en">NDE dataset register</a> to help users in the cultural heritage sector find relevant datasets to link with. You must use this to register the metadata of datasets you serve.</p>
    <p>Although the register provides a manual registration option for users, as a vendor you are required to use the <a href="https://datasetregister.netwerkdigitaalerfgoed.nl/apidoc.php?lang=en">Dataset Register API</a> to implement an automated registration feature in your software. The API description is available based on an <a href="https://www.openapis.org">Open API</a> specification via the <a href="https://datasetregister.netwerkdigitaalerfgoed.nl/api/static/index.html">Swagger UI</a>. The manual service may be used for publishing updates and changes.</p>
    <p>You must publish the metadata with an open data license. You may choose the most suitable license.</p>
@@ -2020,7 +2020,7 @@ Parts of this work may be from another specification document.  If so, those par
    <h3 class="heading settled" data-level="2.5" id="serving-images-through-iiif"><span class="secno">2.5. </span><span class="content">Serving images through IIIF</span><a class="self-link" href="#serving-images-through-iiif"></a></h3>
    <p>You must implement the <a href="https://iiif.io/api/image/3.0/">IIIF Image API</a> to publish images contained in your system. The Image API supports requests for specific parts, sizes and orientations of images based on a URL scheme. It gives viewers the ability to request only those tiles needed for the current viewport and zoom level, instead of forcing them to load the complete high resolution image. You may choose the highest zoom level, size, and number of parts of any image you serve, since these are directly related to the available storage in your system, the results of the digitisation process at the institution, and other customer wishes.</p>
    <p>We use the <a href="https://iiif.io/api/image/validator/">IIIF Image API Validator</a> to test compliance.</p>
-   <p>While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the <a href="https://iiif.io/api/presentation/3.0/">IIIF Presentation API</a>. An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You must serve the IIIF manifest through a URI with a <a href="#pid">§ 2.1 Persistent Identifiers</a>. To improve the readability of the media the metadata of the object must be readable for both humans and machines.</p>
+   <p>While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the <a href="https://iiif.io/api/presentation/3.0/">IIIF Presentation API</a>. An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You should serve the IIIF manifest through a URI with a <a href="#pid">§ 2.1 Persistent Identifiers</a>. To improve the readability of the media the metadata of the object must be readable for both humans and machines.</p>
    <p>We use the <a href="https://presentation-validator.iiif.io">IIIF Presentation API Validator</a> to test compliance.</p>
   </main>
   <div data-fill-with="conformance">

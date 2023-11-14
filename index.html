@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
   <link href="https://netwerk-digitaal-erfgoed.github.io/requirements-collection-management-systems/" rel="canonical">
-  <meta content="3cf55e9841dc0a7330dc6d21be91e9ffed113688" name="document-revision">
+  <meta content="5d7873a40bcbcdeb154c151349b32f301977f4eb" name="document-revision">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -2020,7 +2020,7 @@ Parts of this work may be from another specification document.  If so, those par
    <h3 class="heading settled" data-level="2.5" id="serving-images-through-iiif"><span class="secno">2.5. </span><span class="content">Serving images through IIIF</span><a class="self-link" href="#serving-images-through-iiif"></a></h3>
    <p>You must implement the <a href="https://iiif.io/api/image/3.0/">IIIF Image API</a> to publish images contained in your system. The Image API supports requests for specific parts, sizes and orientations of images based on a URL scheme. It gives viewers the ability to request only those tiles needed for the current viewport and zoom level, instead of forcing them to load the complete high resolution image. You may choose the highest zoom level, size, and number of parts of any image you serve, since these are directly related to the available storage in your system, the results of the digitisation process at the institution, and other customer wishes.</p>
    <p>We use the <a href="https://iiif.io/api/image/validator/">IIIF Image API Validator</a> to test compliance.</p>
-   <p>While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the <a href="https://iiif.io/api/presentation/3.0/">IIIF Presentation API</a>. An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You should serve the IIIF manifest through a URI with a <a href="#pid">§ 2.1 Persistent Identifiers</a>. To improve the readability of the media the metadata of the object must be readable for both humans and machines.</p>
+   <p>While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the <a href="https://iiif.io/api/presentation/3.0/">IIIF Presentation API</a>. An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You should serve the IIIF manifest through a URI with a <a href="#pid">§ 2.1 Persistent Identifiers</a>.</p>
    <p>We use the <a href="https://presentation-validator.iiif.io">IIIF Presentation API Validator</a> to test compliance.</p>
   </main>
   <div data-fill-with="conformance">

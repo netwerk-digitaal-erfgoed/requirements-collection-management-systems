@@ -1,5 +1,5 @@
 <pre class='metadata'>
-Title: Requirements for Collection Management Sytems
+Title: Requirements for Collection Management Systems
 Shortname: nde-collection-management-systems
 Level: 1
 Status: LS
@@ -94,7 +94,7 @@ If a heritage institution is considered an authority in a domain, vendors should
 
 To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [[!NDE-DATASETS|NDE Requirements for Datasets]] and specifically the [section Dataset information](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information).
 
-You are required to serve the metadata through a URI with a persistent identifier (see section [[#pid]]). 
+You should serve the metadata through a URI with a persistent identifier (see section [[#pid]]). 
 
 We have created the [NDE dataset register](https://datasetregister.netwerkdigitaalerfgoed.nl/?lang=en) to help users in the cultural heritage sector find relevant datasets to link with. You must use this to register the metadata of datasets you serve. 
 
@@ -112,6 +112,6 @@ You must implement the [IIIF Image API](https://iiif.io/api/image/3.0/) to publi
 
 We use the [IIIF Image API Validator](https://iiif.io/api/image/validator/) to test compliance.
 
-While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the [IIIF Presentation API](https://iiif.io/api/presentation/3.0/). An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You must serve the IIIF manifest through a URI with a [[#pid]]. To improve the readability of the media the metadata of the object must be readable for both humans and machines.
+While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the [IIIF Presentation API](https://iiif.io/api/presentation/3.0/). An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You should serve the IIIF manifest through a URI with a [[#pid]]. To improve the readability of the media the metadata of the object must be readable for both humans and machines.
 
 We use the [IIIF Presentation API Validator](https://presentation-validator.iiif.io) to test compliance.

@@ -24,21 +24,24 @@ This specification is normative and builds on top of the more informative [Imple
 
 # Requirements
 
-## Persistent Identifiers ## {#pid}
+## Sustainable Identification ## {#pid}
 
 Every information resource needs a [[!URI]] that identifies it to the world. Users must be able to trust these identifiers, they must be unique and reliably serve the same resource over time. URIs must be resolvable and point the user to valid linked data. 
 
-Persistent Identifiers (PIDs) are the part of a URI that uniquely identifies a resource. Heritage institutions must use Persistent Identifiers (PIDs) for their resources to guarantee reliability. With a PID the link to a resource keeps working even when the organisation, or the object's location, has changed.
+Unique Identifiers (UIDs) are the part of a URI that identify a resource. A URI containing a UID must be sustainable. The link to a resource must keep working even when the organisation, or the object's location, changes. 
 
-### PID Implementations
+As a heritage organisation you are required to guarantee the sustainability of your identification system. You must document the formal processes, responsibilities, and actors, in a sustainability policy. This policy describes how you have organised resource indentification and your commitment over time.
 
-There are multiple PID systems such as [Archival Resource Keys](https://arks.org) (ARKs), [Digital Object Identifiers](https://www.doi.org) (DOIs), [Handle](http://handle.net), and others. You may choose any implementation, even your own system based on the internet domain of your organisation. Each system has its own particular properties, strengths, and weaknesses. Our [PID Guide](https://www.pidwijzer.nl/en) helps you make a choice. 
+There are two broad ways of implementing sustainable identification:
 
-As a heritage institution you must choose a PID system. You may be limited by the PID systems supported by your software vendor. But when you change vendor, your PID system migrates with you. 
+1. a system based on an internet domain that identifies you, the heritage organisation
+2. a persistent identification (PID) system served through a third party. Common examples in the heritage sector are: [Archival Resource Keys](https://arks.org) (ARKs); [Digital Object Identifiers](https://www.doi.org) (DOIs); and [Handle](http://handle.net).
 
-Regardless of your choice for a PID system, you are required to structurally guarantee the system in your organisation. You must document the formal processes and policies that describe how PIDs are sustainably implemented and commit to them over time.
+One way is not necessarily more sustainable than the other. Both identification methods fully depend on a sustainability policy that you, as a heritage organisation, have implemented.
 
-As a vendor you must implement at least one PID system in your software. You may support more. When implementing the PID-system you must link resources to your customer (the cultural heritage institution) and not to you as a vendor. Persistency must be guaranteed when resources are migrated to another vendor in the future.
+As a heritage organisation you must chose how you implement sustainable identification. If you chose for a third party PID system you may pick any provider. Each provider has its own particular properties, strengths, and weaknesses. The [PID Guide](https://www.pidwijzer.nl/en) can help you make a choice. You may be limited in your choice by the implementations supported by your software vendor. But when you change vendor, your selected implementation migrates with you. 
+
+As a vendor you may support sustainable identification based on the internet domain of your customer. However, you must implement at least one PID system provided by a third party in your software. You may support more. When implementing a PID-system you must link resources to your customer (the cultural heritage institution) and not to you as a vendor. Persistency must be guaranteed when resources are migrated to another vendor in the future. 
 
 ### Linking to removed resources
 

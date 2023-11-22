@@ -59,7 +59,7 @@ NDE requires linked data to be published both both as level 1 and 2.
 
 To publish web compliant linked data (level 1) URIs (see: [[#pid]]) must resolve to the individual linked data resources contained in your data. To handle requests the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3) protocol must be supported. Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
 
-To publish linked data as a data dump (level 2) you should use [[rdf-primer|RDF]]. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. 
+To publish linked data as a data dump (level 2) you should use [[rdf-primer|RDF]]. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. Where possible you should segment the data dump.
 
 We strongly recommend that vendors also implement level 3 in their products. This starts with allowing users to query linked data collections. When you comply with levels 1 and 2 you allow users to access the individual linked data objects and the full dataset, while you avoid maintaining the linked data infrastructure that you would need to provide for querying. The drawback of this approach is that you move the burden to facilitate querying to the user. For compliance with the querying component of level 3 you must provide a [[SPARQL11-OVERVIEW|SPARQL]] endpoint. 
 

@@ -45,9 +45,10 @@ As a vendor you must implement at least one PID system in your software. You may
 
 ### Linking to removed resources
 
-Removed resources are all objects that have been deleted, made invisible, or that for any other reason are no longer structurally available . You must maintain persistency for removed resources. To handle such requests you must use [standard HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages). You may use 'HTTP 301 Moved Permanently' to redirect the URI of a removed resource to a new resource that replaces it, or mark a removed resource as ‘obsolete’ by throwing 'HTTP 410 Gone' and serve its last incarnation, or choose another solution. 
+Removed resources are all objects that have been deleted, made invisible, or that for any other reason are no longer structurally available. You must maintain persistency for removed resources. To handle such requests you must use [standard HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages). You may use 'HTTP 301 Moved Permanently' to redirect the URI of a removed resource to a new resource that replaces it, or mark a removed resource as ‘obsolete’ by throwing 'HTTP 410 Gone' and serve its last incarnation, or choose another solution. 
 
-Unless an actual error occurs, you may not throw a client error response (category 4xx) or a server error (category 5xx) response to point to removed resources.
+Unless an actual error occurs, the server *MUST NOT* return a client error response (status 4xx, except 410)
+or a server error response (status 5xx) to point to removed resources.
 
 ## Publication of Linked Open Data ## {#LODpublication}
 

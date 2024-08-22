@@ -28,7 +28,10 @@ This specification is normative and builds on top of the more informative [Imple
 
 Every information resource needs a [[!URI]] that identifies it to the world. Users must be able to trust these identifiers, they must be unique and reliably serve the same resource over time. URIs must be resolvable and point the user to valid linked data. 
 
-Persistent Identifiers (PIDs) are the part of a URI that uniquely identifies a resource. Heritage institutions must use Persistent Identifiers (PIDs) for their resources to guarantee reliability. With a PID the link to a resource keeps working even when the organisation, or the object's location, has changed.
+Persistent Identifiers (PIDs) are the part of a URI that uniquely identifies a resource. Heritage institutions must use Persistent Identifiers (PIDs) for their resources to guarantee reliability. 
+
+Once coined, a PID URI *MUST* continue to work.
+Therefore, in case of organisational, technical or other changes, the PID URI *MUST* redirect to the new location.
 
 ### PID Implementations
 
@@ -44,7 +47,7 @@ As a vendor you must implement at least one PID system in your software. You may
 
 Removed resources are all objects that have been deleted, made invisible, or that for any other reason are no longer structurally available . You must maintain persistency for removed resources. To handle such requests you must use [standard HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages). You may use 'HTTP 301 Moved Permanently' to redirect the URI of a removed resource to a new resource that replaces it, or mark a removed resource as ‘obsolete’ by throwing 'HTTP 410 Gone' and serve its last incarnation, or choose another solution. 
 
-Unless an actual error occurs, you may not throw a client error response (category 400) or a server error (category 500) response to point to removed resources.
+Unless an actual error occurs, you may not throw a client error response (category 4xx) or a server error (category 5xx) response to point to removed resources.
 
 ## Publication of Linked Open Data ## {#LODpublication}
 

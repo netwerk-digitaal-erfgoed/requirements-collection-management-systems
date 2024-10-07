@@ -55,7 +55,7 @@ The [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-im
 2. Basic level: data dumps
 3. Advanced level: queryable Linked Data
 
-NDE requires linked data to be published both both as level 1 and 2. 
+NDE requires linked data to be published both as level 1 and 2. 
 
 To publish web compliant linked data (level 1) URIs (see: [[#pid]]) must resolve to the individual linked data resources contained in your data. To handle requests the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3) protocol must be supported. Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
 
@@ -76,9 +76,9 @@ We recommend you also serve data in one or more domain specific models. Domain m
 - Data from archives: [RiC-O](https://www.ica.org/standards/RiC/RiC-O_v0-2.html)
 - Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography](https://netwerk-digitaal-erfgoed.github.io/rdanl/) (only in Dutch). When using other library domain standards like <a href="https://www.loc.gov/bibframe/">BIBFRAME</a>) you should document the implementation choices made and their relation to the RDA application profile.
 
-You should publish documentation how your data model maps to other wellknown models like the [Europeana Data Model (EDM)](https://pro.europeana.eu/page/edm-documentation). We recommend you publish this documentation in a machine readable format. NDE can support you when creating these mappings.
+You should publish documentation how your data model maps to other well-known models like the [Europeana Data Model (EDM)](https://pro.europeana.eu/page/edm-documentation). We recommend you publish this documentation in a machine-readable format. NDE can support you when creating these mappings.
 
-To support the reuse of the collection data by the research community the [FAIR principles](https://www.go-fair.org/fair-principles/) should be taken into account preferably by stating the FAIRness of the data through a [FAIR Implementation Profile](https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/). Please contact the NDE-team for more information on the latest developments in this area.
+To support the reuse of the collection data by the research community the [FAIR principles](https://www.go-fair.org/fair-principles/) should be taken into account, preferably by stating the FAIRness of the data through a [FAIR Implementation Profile](https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/). Please contact the NDE team for more information on the latest developments in this area.
 
 ## Implementation of the NDE Network of Terms
 

@@ -1488,9 +1488,10 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version 82ce88815, updated Thu Sep 7 16:33:55 2023 -0700" name="generator">
+  <meta content="Bikeshed version 6270e4735, updated Tue Aug 6 12:12:30 2024 -0700" name="generator">
   <link href="https://netwerk-digitaal-erfgoed.github.io/requirements-collection-management-systems/" rel="canonical">
-  <meta content="e0522aed9f940d61b5e3ee563a7dff19747c2b88" name="document-revision">
+  <meta content="e5e9b146cce6fb1518aa934445ea0244477a4813" name="revision">
+  <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
     color: var(--a-normal-text);
@@ -1562,7 +1563,6 @@ pre .property::before, pre .property::after {
 }
 </style>
 <style>/* Boilerplate: style-colors */
-
 /* Any --*-text not paired with a --*-bg is assumed to have a transparent bg */
 :root {
     color-scheme: light dark;
@@ -1832,7 +1832,6 @@ a[href].issue-return {
 }
 </style>
 <style>/* Boilerplate: style-selflinks */
-
 :root {
     --selflink-text: white;
     --selflink-bg: gray;
@@ -1895,7 +1894,7 @@ dfn > a.self-link::before      { content: "#"; }
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Requirements for Collection Management Systems</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2023-11-22">22 November 2023</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Standard, <time class="dt-updated" datetime="2024-10-07">7 October 2024</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1911,17 +1910,16 @@ dfn > a.self-link::before      { content: "#"; }
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 22 November 2023,
-the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
-which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
+In addition, as of 7 October 2024,
+the editors have made this specification available under the <a href="https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
+which is available at https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
    <hr title="Separator for header">
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
    <p>This document describes requirements for collection management systems.
-
-    By following these requirements, software developers can make their systems NDE-compatible.</p>
+By following these requirements, software developers can make their systems NDE-compatible.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1985,7 +1983,7 @@ Parts of this work may be from another specification document.  If so, those par
     <li data-md>
      <p>Advanced level: queryable Linked Data</p>
    </ol>
-   <p>NDE requires linked data to be published both both as level 1 and 2.</p>
+   <p>NDE requires linked data to be published both as level 1 and 2.</p>
    <p>To publish web compliant linked data (level 1) URIs (see: <a href="#pid">§ 2.1 Persistent Identifiers</a>) must resolve to the individual linked data resources contained in your data. To handle requests the <a href="https://datatracker.ietf.org/doc/html/rfc7231#section-5.3">HTTP content negotation</a> protocol must be supported. Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.</p>
    <p>To publish linked data as a data dump (level 2) you should use <a data-link-type="biblio" href="#biblio-rdf-primer" title="RDF Primer">RDF</a>. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier.</p>
    <p>We strongly recommend that vendors also implement level 3 in their products. This allows users to also query linked data collections. For compliance with level 3 you must use a <a data-link-type="biblio" href="#biblio-sparql11-overview" title="SPARQL 1.1 Overview">SPARQL</a> endpoint.</p>
@@ -2002,8 +2000,8 @@ Parts of this work may be from another specification document.  If so, those par
     <li data-md>
      <p>Libraries: <a href="https://www.rdaregistry.info/Elements/">RDA Elements</a> following the recommendations of the <a href="https://netwerk-digitaal-erfgoed.github.io/rdanl/">RDA application profile Dutch bibliography</a> (only in Dutch). When using other library domain standards like <a href="https://www.loc.gov/bibframe/">BIBFRAME</a>) you should document the implementation choices made and their relation to the RDA application profile.</p>
    </ul>
-   <p>You should publish documentation how your data model maps to other wellknown models like the <a href="https://pro.europeana.eu/page/edm-documentation">Europeana Data Model (EDM)</a>. We recommend you publish this documentation in a machine readable format. NDE can support you when creating these mappings.</p>
-   <p>To support the reuse of the collection data by the research community the <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a> should be taken into account preferably by stating the FAIRness of the data through a <a href="https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/">FAIR Implementation Profile</a>. Please contact the NDE-team for more information on the latest developments in this area.</p>
+   <p>You should publish documentation how your data model maps to other well-known models like the <a href="https://pro.europeana.eu/page/edm-documentation">Europeana Data Model (EDM)</a>. We recommend you publish this documentation in a machine-readable format. NDE can support you when creating these mappings.</p>
+   <p>To support the reuse of the collection data by the research community the <a href="https://www.go-fair.org/fair-principles/">FAIR principles</a> should be taken into account, preferably by stating the FAIRness of the data through a <a href="https://www.go-fair.org/how-to-go-fair/fair-implementation-profile/">FAIR Implementation Profile</a>. Please contact the NDE team for more information on the latest developments in this area.</p>
    <h3 class="heading settled" data-level="2.3" id="implementation-of-the-nde-network-of-terms"><span class="secno">2.3. </span><span class="content">Implementation of the NDE Network of Terms</span><a class="self-link" href="#implementation-of-the-nde-network-of-terms"></a></h3>
    <p>To connect the linked data that you publish with other data sources heritage institutions should use terms. Terms are descriptions of concepts or entities, such as subjects, people or places, and are managed in terminology sources, such as thesauri, reference lists or classification systems. Examples are <a href="https://www.getty.edu/research/tools/vocabularies/aat/">AAT</a>, <a href="https://www.geonames.org/">GeoNames</a> or <a href="https://data.niod.nl/WO2_Thesaurus.html">WO2 Thesaurus</a> (in Dutch).</p>
    <p>Heritage institutions may use their own terminology sources. However, this reduces their ability to connect to sources from different institutions when using terms that are not part of (inter)nationally standardised terminology sources. We recommend using as many standardised terminology sources as possible. We developed the Network-of-Terms service to give you easy access to many different terminology sources.</p>
@@ -2061,7 +2059,7 @@ Parts of this work may be from another specification document.  If so, those par
       on = !document.body.classList.contains('toc-sidebar');
     }
 
-    /* Don’t scroll to compensate for the ToC if we’re above it already. */
+    /* Don't scroll to compensate for the ToC if we're above it already. */
     var headY = 0;
     var head = document.querySelector('.head');
     if (head) {
@@ -2092,16 +2090,16 @@ Parts of this work may be from another specification document.  If so, those par
       }
       if (toggle.matches(':hover')) {
         /* Unfocus button when not using keyboard navigation,
-           because I don’t know where else to send the focus. */
+           because I don't know where else to send the focus. */
         toggle.blur();
       }
     }
   }
 
   function createSidebarToggle() {
-    /* Create the sidebar toggle in JS; it shouldn’t exist when JS is off. */
+    /* Create the sidebar toggle in JS; it shouldn't exist when JS is off. */
     var toggle = document.createElement('a');
-      /* This should probably be a button, but appearance isn’t standards-track.*/
+      /* This should probably be a button, but appearance isn't standards-track.*/
     toggle.id = 'toc-toggle';
     toggle.class = 'toc-toggle';
     toggle.href = '#toc';
@@ -2117,7 +2115,7 @@ Parts of this work may be from another specification document.  If so, those par
     toggle.addEventListener('click', toggler, false);
 
 
-    /* Get <nav id=toc-nav>, or make it if we don’t have one. */
+    /* Get <nav id=toc-nav>, or make it if we don't have one. */
     var tocNav = document.getElementById('toc-nav');
     if (!tocNav) {
       tocNav = document.createElement('p');
@@ -2125,7 +2123,7 @@ Parts of this work may be from another specification document.  If so, those par
       /* Prepend for better keyboard navigation */
       document.body.insertBefore(tocNav, document.body.firstChild);
     }
-    /* While we’re at it, make sure we have a Jump to Toc link. */
+    /* While we're at it, make sure we have a Jump to Toc link. */
     var tocJump = document.getElementById('toc-jump');
     if (!tocJump) {
       tocJump = document.createElement('a');
@@ -2153,7 +2151,7 @@ Parts of this work may be from another specification document.  If so, those par
     }, false);
   }
   else {
-    console.warn("Can’t find Table of Contents. Please use <nav id='toc'> around the ToC.");
+    console.warn("Can't find Table of Contents. Please use <nav id='toc'> around the ToC.");
   }
 
   /* Wrap tables in case they overflow */

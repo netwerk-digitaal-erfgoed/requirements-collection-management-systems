@@ -73,7 +73,7 @@ You must use the generic model [schema.org](https://schema.org) when you choose 
 
 We recommend you also serve data in one or more domain specific models. Domain models make reuse of data much more likely and may contain a wealth of information. Depending on the type of data, you may consider the following examples:
 - Museum collections and catalogues: <a href="https://cidoc-crm.org">CIDOC-CRM</a> and its derivative [Linked-Art](https://linked.art/model/).
-- Data from archives: [RiC-O](https://www.ica.org/standards/RiC/RiC-O_v0-2.html)
+- Data from archives: [RiC-O](https://github.com/ICA-EGAD/RiC-O/tree/master/ontology/current-version)
 - Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography](https://netwerk-digitaal-erfgoed.github.io/rdanl/) (only in Dutch). When using other library domain standards like <a href="https://www.loc.gov/bibframe/">BIBFRAME</a>) you should document the implementation choices made and their relation to the RDA application profile.
 
 You should publish documentation how your data model maps to other well-known models like the [Europeana Data Model (EDM)](https://pro.europeana.eu/page/edm-documentation). We recommend you publish this documentation in a machine-readable format. NDE can support you when creating these mappings.

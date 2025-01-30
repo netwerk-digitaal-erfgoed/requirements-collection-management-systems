@@ -5,15 +5,36 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
-  build:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Output Bikeshed to HTML
+      - uses: actions/configure-pages@v4
+
+      - name: Build and validate
         uses: w3c/spec-prod@v2
         with:
-          GH_PAGES_BRANCH: gh-pages
           VALIDATE_MARKUP: false
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: spec-prod-result
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -24,14 +24,15 @@ This specification is normative and builds on top of the more informative [Imple
 
 # Requirements
 
-## Persistent Identifiers ## {#pid}
+## Persistent HTTP URIs ## {#persistent-uri}
 
-Every information resource needs a [[!URI]] that identifies it to the world. Users must be able to trust these identifiers, they must be unique and reliably serve the same resource over time. URIs must be resolvable and point the user to valid linked data. 
+Every information resource needs a persistent HTTP [[!URI]] that identifies it to the world. Users must be able to trust these identifiers, they must be unique and reliably serve the same resource over time. URIs must be resolvable and point the user to valid linked data. 
 
-Persistent Identifiers (PIDs) are the part of a URI that uniquely identifies a resource. Heritage institutions must use Persistent Identifiers (PIDs) for their resources to guarantee reliability. 
+Persistent Identifiers (PIDs) are the part of a URI that uniquely identifies a resource. Heritage institutions must use Persistent Identifiers (PIDs) for their resources to guarantee reliability. With a PID the link to a resource keeps working even when the organisation, or the object's location, has changed.
 
 Once coined, a PID URI *MUST* continue to work.
 Therefore, in case of organisational, technical or other changes, the PID URI *MUST* redirect to the new location.
+New persistent URIs *MUST* be HTTPS URIs (`https://...`). For previously coined URIs, HTTP (`http://...`) *MAY* continue to be used.
 
 ### PID Implementations
 
@@ -45,10 +46,9 @@ As a vendor you must implement at least one PID system in your software. You may
 
 ### Linking to removed resources
 
-Removed resources are all objects that have been deleted, made invisible, or that for any other reason are no longer structurally available. You must maintain persistency for removed resources. To handle such requests you must use [standard HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages). You may use 'HTTP 301 Moved Permanently' to redirect the URI of a removed resource to a new resource that replaces it, or mark a removed resource as ‘obsolete’ by throwing 'HTTP 410 Gone' and serve its last incarnation, or choose another solution. 
+Removed resources are all objects that have been deleted, made invisible, or that for any other reason are no longer structurally available . You must maintain persistency for removed resources. To handle such requests you must use [standard HTTP response status codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status#redirection_messages). You may use 'HTTP 301 Moved Permanently' to redirect the URI of a removed resource to a new resource that replaces it, or mark a removed resource as ‘obsolete’ by throwing 'HTTP 410 Gone' and serve its last incarnation, or choose another solution. 
 
-Unless an actual error occurs, the server *MUST NOT* return a client error response (status 4xx, except 410)
-or a server error response (status 5xx) to point to removed resources.
+Unless an actual error occurs, you may not throw a client error response (category 400) or a server error (category 500) response to point to removed resources.
 
 ## Publication of Linked Open Data ## {#LODpublication}
 
@@ -61,7 +61,7 @@ The [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-im
 
 NDE requires linked data to be published both as level 1 and 2. 
 
-To publish web compliant linked data (level 1) URIs (see: [[#pid]]) must resolve to the individual linked data resources contained in your data. To handle requests the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3) protocol must be supported. Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
+To publish web compliant linked data (level 1) URIs (see: [[#persistent-uri]]) must resolve to the individual linked data resources contained in your data. To handle requests the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3) protocol must be supported. Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
 
 To publish linked data as a data dump (level 2) you should use [[rdf-primer|RDF]]. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. 
 
@@ -98,7 +98,7 @@ If a heritage institution is considered an authority in a domain, vendors should
 
 To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [[!NDE-DATASETS|NDE Requirements for Datasets]] and specifically the [section Dataset information](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information).
 
-You should serve the metadata through a URI with a persistent identifier (see section [[#pid]]). 
+You should serve the metadata through a URI with a persistent identifier (see section [[#persistent-uri]]). 
 
 We have created the [NDE dataset register](https://datasetregister.netwerkdigitaalerfgoed.nl/?lang=en) to help users in the cultural heritage sector find relevant datasets to link with. You must use this to register the metadata of datasets you serve. 
 
@@ -116,6 +116,6 @@ You must implement the [IIIF Image API](https://iiif.io/api/image/3.0/) to publi
 
 We use the [IIIF Image API Validator](https://iiif.io/api/image/validator/) to test compliance.
 
-While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the [IIIF Presentation API](https://iiif.io/api/presentation/3.0/). An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You should serve the IIIF manifest through a URI with a [[#pid]].
+While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the [IIIF Presentation API](https://iiif.io/api/presentation/3.0/). An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You should serve the IIIF manifest through a URI with a [[#persistent-uri]].
 
 We use the [IIIF Presentation API Validator](https://presentation-validator.iiif.io) to test compliance.

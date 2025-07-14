@@ -73,7 +73,7 @@ Note: When you comply with levels 1 and 2 you allow users to access the individu
 
 We distinguish between the publication of data in "generic data models" and "domain data models". The purpose of generic data models is to integrate the data in the cultural heritage network and make it more visible. Domain models are usually more richly populated and provide users with more possibilities for further processing in [*dienstplatformen*](https://netwerkdigitaalerfgoed.nl/nieuws/maak-jij-erfgoedsites-en-apps-volg-de-afspraken-uit-de-architectuurblauwdruk-voor-dienstplatformen/) (Service Platforms).
 
-You must use the generic model [schema.org](https://schema.org) when you choose to serve linked data in only one model. 
+You must publish your linked data according to the [Schema.org NDE Application Profile (SCHEMA-AP-NDE)](https://docs.nde.nl/schema-profile/). 
 
 We recommend you also serve data in one or more domain specific models. Domain models make reuse of data much more likely and may contain a wealth of information. Depending on the type of data, you may consider the following examples:
 - Museum collections and catalogues: <a href="https://cidoc-crm.org">CIDOC-CRM</a> and its derivative [Linked-Art](https://linked.art/model/).

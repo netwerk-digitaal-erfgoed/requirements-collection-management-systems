@@ -54,20 +54,22 @@ Unless an actual error occurs, you may not throw a client error response (catego
 
 ### Serving data
 
-The [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) mentioned above considers three levels when [publishing linked data](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-linked-data):
+The  mentioned above considers three levels when [publishing linked data](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-linked-data):
 1. Web compliance level: resolvable URIs
 2. Basic level: data dumps
-3. Advanced level: queryable Linked Data
+3. Advanced level: query Linked Data and change discovery
 
 NDE requires linked data to be published both as level 1 and 2. 
 
 To publish web compliant linked data (level 1) URIs (see: [[#persistent-uri]]) must resolve to the individual linked data resources contained in your data. To handle requests the [HTTP content negotation](https://datatracker.ietf.org/doc/html/rfc7231#section-5.3) protocol must be supported. Content negotiation offers users the choice to consume the data in the serialisation of their choice, e.g. as HTML, RDF, or other formats you support.
 
-To publish linked data as a data dump (level 2) you should use [[rdf-primer|RDF]]. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. 
+To publish linked data as a data dump (level 2) you should use [[rdf-primer|RDF]]. We recommend the use of the N-Triples serialisation for flexibility but any other RDF serialisation is valid (N-Triples, Turtle, JSON-LD, RDF/XML). You must serve the data dump through a URI with a persistent identifier. Where possible you should segment the data dump.
 
-We strongly recommend that vendors also implement level 3 in their products. This allows users to also query linked data collections. For compliance with level 3 you must use a [[SPARQL11-OVERVIEW|SPARQL]] endpoint.
+We strongly recommend that vendors also implement level 3 in their products. This starts with allowing users to query linked data collections. When you comply with levels 1 and 2 you allow users to access the individual linked data objects and the full dataset, while you avoid maintaining the linked data infrastructure that you would need to provide for querying. The drawback of this approach is that you move the burden to facilitate querying to the user. For compliance with the querying component of level 3 you must provide a [[SPARQL11-OVERVIEW|SPARQL]] endpoint. 
 
-Note: When you comply with levels 1 and 2 you allow users to access the individual linked data objects and the full dataset, while you avoid maintaining a linked data infrastructure that you would need to provide for querying. The drawback of this approach is that you move the burden to facilitate querying to the user. For this reason we view compliance with level 1 and 2 as a minimal requirement. We strongly urge you to go further and implement level 3. Compliancy with level 3 will very likely play a large role in the allocation of future NDE funding.
+For compliance with level 3 we go further than the original [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) and also strongly recommend that you allow users to discover recent changes in the datasets you serve. For compliance with the change discovery component of level 3 you should provide a linked data compatible subscription service like the [IIIF Change Discovery API](https://iiif.io/api/discovery/1.0/) or [Linked Data Event Streams](https://semiceu.github.io/LinkedDataEventStreams/). You may not use an XML-based service like [OAI-PMH](https://www.openarchives.org/pmh/).
+
+Note: We view compliance with level 1 and 2 as a minimal requirement. We strongly urge you to go further and work towards implementing the components of level 3. Compliancy with (parts of) level 3 will very likely play a large role in the allocation of future NDE funding.
 
 ### Data modelling
 

@@ -3,6 +3,7 @@ Title: Requirements for Collection Management Systems
 Shortname: nde-collection-management-systems
 Level: 1
 Status: LS
+!Version: 1.0.0
 Markup Shorthands: css yes, markdown yes
 URL: https://netwerk-digitaal-erfgoed.github.io/requirements-collection-management-systems/
 Editor: 
@@ -120,3 +121,11 @@ We use the [IIIF Image API Validator](https://iiif.io/api/image/validator/) to t
 While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the [IIIF Presentation API](https://iiif.io/api/presentation/3.0/). An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You should serve the IIIF manifest through a URI with a [[#persistent-uri]].
 
 We use the [IIIF Presentation API Validator](https://presentation-validator.iiif.io) to test compliance.
+
+Changes {#changes}
+=====================
+
+This section lists notable changes to this specification.
+
+<!-- CHANGELOG-START -->
+<!-- CHANGELOG-END -->

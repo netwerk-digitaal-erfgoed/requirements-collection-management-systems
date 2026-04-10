@@ -3,12 +3,35 @@
     "href": "https://dera.netwerkdigitaalerfgoed.nl",
     "title": "Digital Heritage Reference Architecture"
   },
+  "nde-alignment": {
+    "href": "https://docs.nde.nl/cm-implementation-guidelines/",
+    "title": "Implementation guidelines for NDE alignment",
+    "authors": [
+      "Sjors de Valk",
+      "Ivo Zandhuis",
+      "Bob Coret"
+    ]
+  },
   "nde-datasets": {
     "href": "https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/",
     "title": "Requirements for Datasets",
     "authors": [
       "David de Boer",
       "Netwerk Digitaal Erfgoed"
+    ]
+  },
+  "nde-dataset-register-implementations": {
+    "href": "https://docs.nde.nl/requirements-dataset-register-implementations/",
+    "title": "Requirements for Dataset Register Implementations",
+    "authors": [
+      "David de Boer"
+    ]
+  },
+  "nde-network-of-terms-implementations": {
+    "href": "https://docs.nde.nl/requirements-network-of-terms-implementations/",
+    "title": "Requirements for Network of Terms Implementations",
+    "authors": [
+      "David de Boer"
     ]
   },
   "URI": {

@@ -21,7 +21,7 @@ The guidelines in this document are required for any institution in the Dutch cu
 
 Organisations who provide datasets or collections according to these guidelines are considered Data Providers ([Bronhouders](https://dera.netwerkdigitaalerfgoed.nl/index.php/Rollen#Bronhouder)) as defined by the [[!DERA]].
 
-This specification is normative and builds on top of the more informative [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) which was published in a earlier stage of the NDE-program.
+This specification is normative and builds on top of the more informative [[NDE-ALIGNMENT inline]] which were published in an earlier stage of the NDE-program.
 
 # Requirements
 
@@ -55,7 +55,7 @@ Unless an actual error occurs, you may not throw a client error response (catego
 
 ### Serving data
 
-The [Implementation Guidelines](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-collection-information) mentioned above considers three levels when [publishing linked data](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-linked-data):
+The [Implementation Guidelines](https://docs.nde.nl/cm-implementation-guidelines/#publishing-collection-information) mentioned above considers three levels when [publishing linked data](https://docs.nde.nl/cm-implementation-guidelines/#publishing-linked-data):
 1. Web compliance level: resolvable URIs
 2. Basic level: data dumps
 3. Advanced level: queryable Linked Data
@@ -80,7 +80,7 @@ In the future, SCHEMA-AP-NDE will become a requirement.
 We recommend you also serve data in one or more domain specific models. Domain models make reuse of data much more likely and may contain a wealth of information. Depending on the type of data, you may consider the following examples:
 - Museum collections and catalogues: <a href="https://cidoc-crm.org">CIDOC-CRM</a> and its derivative [Linked-Art](https://linked.art/model/).
 - Data from archives: [RiC-O](https://github.com/ICA-EGAD/RiC-O/tree/master/ontology/current-version)
-- Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography](https://netwerk-digitaal-erfgoed.github.io/rdanl/) (only in Dutch). When using other library domain standards like <a href="https://www.loc.gov/bibframe/">BIBFRAME</a>) you should document the implementation choices made and their relation to the RDA application profile.
+- Libraries: [RDA Elements](https://www.rdaregistry.info/Elements/) following the recommendations of the [RDA application profile Dutch bibliography](https://docs.nde.nl/rdanl/) (only in Dutch). When using other library domain standards like <a href="https://www.loc.gov/bibframe/">BIBFRAME</a>) you should document the implementation choices made and their relation to the RDA application profile.
 
 You should publish documentation how your data model maps to other well-known models like the [Europeana Data Model (EDM)](https://pro.europeana.eu/page/edm-documentation). We recommend you publish this documentation in a machine-readable format. NDE can support you when creating these mappings.
 
@@ -94,11 +94,11 @@ Heritage institutions may use their own terminology sources. However, this reduc
 
 For vendors we require the implementation of the [NDE Network-of-Terms API](https://termennetwerk.netwerkdigitaalerfgoed.nl/faq3) in the collection management system. This will give your customers easy access to the terminology sources made available through the Network-of-Terms. You must implement configurable terms for fields in your heritage application. You may choose the specific fields. If you allow users of your application to configure the data type of a field, you should add a data type for terms. That way users are not limited in the (number of) fields that they want to configure for certain sets of terms. 
 
-If a heritage institution is considered an authority in a domain, vendors should publish their terminology sources for use by others and make it available through the Network-of-Terms. Please refer to our [Implementation Guidelines on publishing terminology sources](https://netwerk-digitaal-erfgoed.github.io/cm-implementation-guidelines/#publishing-terminology-sources). 
+If a heritage institution is considered an authority in a domain, vendors should publish their terminology sources for use by others and make it available through the Network-of-Terms. Please refer to our [Implementation Guidelines on publishing terminology sources](https://docs.nde.nl/cm-implementation-guidelines/#publishing-terminology-sources). 
 
 ## Registration with the NDE Dataset Register ## {#DatasetRegister}
 
-To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [[!NDE-DATASETS|NDE Requirements for Datasets]] and specifically the [section Dataset information](https://netwerk-digitaal-erfgoed.github.io/requirements-datasets/#dataset-information).
+To increase the findability of datasets of heritage institutions, you must publish the metadata of any dataset you serve. The metadata contains the description of the dataset and must be modelled in [schema.org](https://schema.org). We created a data model for the description of datasets and adopted the class https://schema.org/Dataset. You must comply with the model as documented in the [[!NDE-DATASETS|NDE Requirements for Datasets]] and specifically the [section Dataset information](https://docs.nde.nl/requirements-datasets/#dataset-information).
 
 You should serve the metadata through a URI with a persistent identifier (see section [[#persistent-uri]]). 
 
@@ -126,8 +126,8 @@ We use the [IIIF Presentation API Validator](https://presentation-validator.iiif
 
 NDE strives to maintain backwards compatibility when updating requirements. Periodically, however, NDE announces backwards-incompatible changes to improve interoperability and usability in the heritage network. Examples include:
 
-- **new requirements**, such as making [[!SCHEMA-AP-NDE]] required, or the addition of a new requirements document (for example, the forthcoming Candidate Requirements for Network of Terms Implementations);
-- **changes to existing requirements**, such as promoting a property status from recommended to required (for example, `schema:ContactPoint` becoming required in [[NDE-DATASETS]]);
+- **new requirements**, such as making the [[!SCHEMA-AP-NDE inline]] required, or the addition of a new requirements document (for example, the forthcoming [[!NDE-NETWORK-OF-TERMS-IMPLEMENTATIONS inline]]);
+- **changes to existing requirements**, such as promoting a property status from recommended to required (for example, `schema:ContactPoint` becoming required in the [[NDE-DATASETS inline]]);
 - **API changes**, such as new versions of the [NDE Network of Terms API](https://termennetwerk.netwerkdigitaalerfgoed.nl/faq3) or the [Dataset Register API](https://datasetregister.netwerkdigitaalerfgoed.nl/api/).
 
 Keeping up with these changes is intended to be a continuous process rather than a one-off effort: vendors who follow the version indications described below can incorporate changes gradually as part of regular maintenance.
@@ -144,8 +144,6 @@ NDE blog announcements state an **implementation deadline**, set at least 12 mon
 
 Changes {#changes}
 =====================
-
-This section lists notable changes to this specification.
 
 <!-- CHANGELOG-START -->
 <!-- CHANGELOG-END -->

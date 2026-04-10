@@ -4,7 +4,7 @@ Shortname: nde-collection-management-systems
 Level: 1
 Status: LS
 Markup Shorthands: css yes, markdown yes
-URL: https://netwerk-digitaal-erfgoed.github.io/requirements-collection-management-systems/
+URL: https://docs.nde.nl/requirements-collection-management-systems/
 Editor: 
     Gertjan Filarski, Netwerk Digitaal Erfgoed https://www.netwerkdigitaalerfgoed.nl, gertjan@filarski.com
     Enno Meijers, Netwerk Digitaal Erfgoed https://www.netwerkdigitaalerfgoed.nl, enno.meijers@kb.nl
@@ -103,7 +103,7 @@ You should serve the metadata through a URI with a persistent identifier (see se
 
 We have created the [NDE dataset register](https://datasetregister.netwerkdigitaalerfgoed.nl/?lang=en) to help users in the cultural heritage sector find relevant datasets to link with. You must use this to register the metadata of datasets you serve. 
 
-Although the register provides a manual registration option for users, as a vendor you are required to use the [Dataset Register API](https://datasetregister.netwerkdigitaalerfgoed.nl/apidoc.php?lang=en) to implement an automated registration feature in your software. The API description is available based on an [Open API](https://www.openapis.org) specification via the [Swagger UI](https://datasetregister.netwerkdigitaalerfgoed.nl/api/static/index.html). The manual service may be used for publishing updates and changes. 
+Although the register provides a manual registration option for users, as a vendor you are required to use the [Dataset Register API](https://datasetregister.netwerkdigitaalerfgoed.nl/api/) to implement an automated registration feature in your software. The API description is available based on an [Open API](https://www.openapis.org) specification via the [Swagger UI](https://datasetregister.netwerkdigitaalerfgoed.nl/api/). The manual service may be used for publishing updates and changes. 
 
 You must publish the metadata with an open data license. You may choose the most suitable license.
 
@@ -120,3 +120,23 @@ We use the [IIIF Image API Validator](https://iiif.io/api/image/validator/) to t
 While the Image API provides access to individual images, it does not describe the relationship between groups of images, such as the individual scans that make up the pages of a book. Besides the IIIF Image API you must also publish an IIIF manifest through the [IIIF Presentation API](https://iiif.io/api/presentation/3.0/). An IIIF manifest is a JSON-LD document that describes the structure and metadata of a digital object or collection of objects, such as images, audio, or video. It comprises several key components, including pages, canvases, table of contents (ranges), and annotations. You should serve the IIIF manifest through a URI with a [[#persistent-uri]].
 
 We use the [IIIF Presentation API Validator](https://presentation-validator.iiif.io) to test compliance.
+
+# Staying up to date
+
+NDE strives to maintain backwards compatibility when updating requirements. Periodically, however, NDE announces backwards-incompatible changes to improve interoperability and usability in the heritage network. Examples include:
+
+- **new requirements**, such as making [[!SCHEMA-AP-NDE]] required, or the addition of a new requirements document (for example, the forthcoming Candidate Requirements for Network of Terms Implementations);
+- **changes to existing requirements**, such as promoting a property status from recommended to required (for example, `schema:ContactPoint` becoming required in [[NDE-DATASETS]]);
+- **API changes**, such as new versions of the [NDE Network of Terms API](https://termennetwerk.netwerkdigitaalerfgoed.nl/faq3) or the [Dataset Register API](https://datasetregister.netwerkdigitaalerfgoed.nl/api/).
+
+Keeping up with these changes is intended to be a continuous process rather than a one-off effort: vendors who follow the version indications described below can incorporate changes gradually as part of regular maintenance.
+
+## Upcoming changes
+
+NDE announces upcoming changes on the [NDE blog](https://docs.nde.nl/blog) at least 12 months before they take effect. Following [Semantic Versioning](https://semver.org) conventions, backwards-incompatible changes are grouped together and released as a new major version – for example, the Dataset Register requirements are currently at version 1.x, and the next backwards-incompatible set of changes will be released as 2.0.
+
+In the period leading up to a change, upcoming changes are shown in the requirements documents with a version indication. For the Dataset Register specifically, SHACL warnings with a version indication will be returned from the [Dataset Register API’s](https://datasetregister.netwerkdigitaalerfgoed.nl/api/) validation endpoint.
+
+## Implementing changes
+
+NDE blog announcements state an **implementation deadline**, set at least 12 months after the announcement date, by which collection management systems *MUST* have updated their implementations and published data to match the changed requirements. The period between the announcement and the deadline is the **transition period**, during which both the old and the new requirements are considered valid. Systems that have not met the deadline will no longer be considered NDE-compliant. In the case of the Dataset Register, for example, dataset descriptions that fail validation may be removed from the register.

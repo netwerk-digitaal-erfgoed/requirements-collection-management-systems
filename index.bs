@@ -3,7 +3,7 @@ Title: Requirements for Collection Management Systems
 Shortname: nde-collection-management-systems
 Level: 1
 Status: LS
-!Version: 1.0.0
+!Version: <a href="#v1.1.0">1.1.0</a>
 Markup Shorthands: css yes, markdown yes
 URL: https://docs.nde.nl/requirements-collection-management-systems/
 Editor: 
@@ -146,4 +146,9 @@ Changes {#changes}
 =====================
 
 <!-- CHANGELOG-START -->
+Version 1.1.0 (2026-04-10) {#v1.1.0}
+----------
+
+- Add ‘Staying up to date’ section ([2f4c6d3](https://github.com/netwerk-digitaal-erfgoed/requirements-collection-management-systems/commit/2f4c6d315a6ad02583782193fe2e1220f6a0602f)).
+- Bibliography references and canonical URLs ([fcd20f4](https://github.com/netwerk-digitaal-erfgoed/requirements-collection-management-systems/commit/fcd20f476d963396733e5f274bd2963d30393b45)).
 <!-- CHANGELOG-END -->

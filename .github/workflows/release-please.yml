@@ -1,0 +1,12 @@
+name: Release Please
+
+on:
+  push:
+    branches:
+      - main
+      - release-please--branches--main**
+
+jobs:
+  release-please:
+    uses: netwerk-digitaal-erfgoed/workflows/.github/workflows/release-please.yml@main
+    secrets: inherit

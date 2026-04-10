@@ -3,6 +3,7 @@ Title: Requirements for Collection Management Systems
 Shortname: nde-collection-management-systems
 Level: 1
 Status: LS
+!Version: 1.0.0
 Markup Shorthands: css yes, markdown yes
 URL: https://docs.nde.nl/requirements-collection-management-systems/
 Editor: 
@@ -140,3 +141,11 @@ In the period leading up to a change, upcoming changes are shown in the requirem
 ## Implementing changes
 
 NDE blog announcements state an **implementation deadline**, set at least 12 months after the announcement date, by which collection management systems *MUST* have updated their implementations and published data to match the changed requirements. The period between the announcement and the deadline is the **transition period**, during which both the old and the new requirements are considered valid. Systems that have not met the deadline will no longer be considered NDE-compliant. In the case of the Dataset Register, for example, dataset descriptions that fail validation may be removed from the register.
+
+Changes {#changes}
+=====================
+
+This section lists notable changes to this specification.
+
+<!-- CHANGELOG-START -->
+<!-- CHANGELOG-END -->
